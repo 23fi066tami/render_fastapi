@@ -18,6 +18,6 @@ def index():
     """
     return HTMLResponse(content=html_content, status_code=200)
 
-    @app.post("/present")
-async def give_present(present):
-    return {"response": f"サーバです。課題をしなさい！ {present}うるさい。"}  # f文字列というPythonの機能を使っている
+   @app.post("/present")
+async def give_present(present: str = Form(...)):
+    return {"response": f"メリークリスマス！{present}ありがとう！お返しはケーキです。"}
